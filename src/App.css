@@ -1,0 +1,12 @@
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 16px;
+}
+.product{
+    cursor: pointer;
+    padding: 1.5em;
+    border: 1px solid black;
+    width: 300px;
+}
