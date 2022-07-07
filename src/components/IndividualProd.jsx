@@ -3,7 +3,7 @@ import axios from "axios";
 /*local components */
 import { Context } from "../context/ContextProvider";
 import { baseURL } from "../helper/url";
-import {useNavigate} from "react-router-dom"
+import {Product} from "./Product"
 function IndividualProd() {
   const { itemID } = useContext(Context);
 
@@ -21,20 +21,22 @@ function IndividualProd() {
     };
     getProductByItemId();
   }, []);
-let navigate = useNavigate()
+
   return (
     <>
-    <button onClick={()=> navigate("/")}>HOME</button>
       <header>
         <h1>PRODUTO</h1>
       </header>
       <main>
-        {data && <div className="product">
-            <p>{data.title}</p>
-            <p>{data.description}</p>
-            <p>{data.price}</p>
+        {data && <>
+          <Product
+                id={data._id}
+                title={data.title}
+                desc={data.description}
+                price={data.price}
+              />
             <button>Adicionar ao carrinho</button>
-          </div>}
+          </>}
       </main>
       
     </>

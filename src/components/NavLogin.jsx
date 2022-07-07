@@ -1,6 +1,7 @@
 /*dependencies*/
 import { useRef, useContext, useState } from "react";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
+
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 /*local components*/
@@ -13,6 +14,7 @@ function NavLogin() {
   //states
   let emailRef = useRef();
   let passwordRef = useRef();
+  let navigate = useNavigate()
   //handlechange
   function handleChange(e) {
     const { id, value } = e.target;
@@ -55,6 +57,7 @@ function NavLogin() {
   };
   return (
     <>
+    <Link to="/">HOME</Link>
       {!authorized ? (
         <form>
           <label htmlFor="text">
