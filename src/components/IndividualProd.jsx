@@ -14,7 +14,6 @@ function IndividualProd() {
         if (!itemID) return
         const response = await axios.get(`${baseURL}/posts/product/${itemID}`);
         setData(response.data);
-        console.log(response);
       } catch (error) {
         console.error({ error: error });
       }

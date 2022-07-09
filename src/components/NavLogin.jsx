@@ -1,6 +1,6 @@
 /*dependencies*/
-import { useRef, useContext, useState } from "react";
-import {Link, useNavigate} from "react-router-dom"
+import { useRef, useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 import jwtDecode from "jwt-decode";
@@ -14,7 +14,7 @@ function NavLogin() {
   //states
   let emailRef = useRef();
   let passwordRef = useRef();
-  let navigate = useNavigate()
+  useEffect(() => checkUserName(), []);
   //handlechange
   function handleChange(e) {
     const { id, value } = e.target;
@@ -48,6 +48,7 @@ function NavLogin() {
   }
   const checkUserName = () => {
     const data = JSON.parse(localStorage.getItem("storeUserData"));
+    if (!data) return
     setUserName(data.userName);
   };
   const clearStorage = () => {
@@ -57,7 +58,7 @@ function NavLogin() {
   };
   return (
     <>
-    <Link to="/">HOME</Link>
+      <Link to="/">HOME</Link>
       {!authorized ? (
         <form>
           <label htmlFor="text">
@@ -86,7 +87,6 @@ function NavLogin() {
         <>
           <Link to="/user">{userName}</Link>
           <button onClick={clearStorage}>sair</button>
-          
         </>
       )}
     </>

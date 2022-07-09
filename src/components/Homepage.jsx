@@ -36,12 +36,13 @@ function Homepage() {
         {data.length > 0 &&
           data.map((item) => {
             return (
-              <Product
+              <Product 
                 handleClick={()=> handleClick(item._id)}
-                id={item._id}
+                key={item._id}
                 title={item.title}
                 desc={item.description}
                 price={item.price}
+                image={item.image}
               />
               // <div
               //   onClick={() => handleClick(item._id)}

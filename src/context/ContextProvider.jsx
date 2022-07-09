@@ -10,8 +10,13 @@ function ContextProvider({ children }) {
   }, [authorized]);
   function checkAuth() {
     const data = JSON.parse(localStorage.getItem("storeUserData"));
-    if (!data) return;
-    setUserIDContext(data.userID);
+    if (!data) {
+      setAuthorized(false);
+    }else{
+      setUserIDContext(data.userID);
+      setAuthorized(true)
+    }
+    
   }
   const setAuth = () => setAuthorized(true);
   const handleItemIDContext = (id) => setItemID(id);

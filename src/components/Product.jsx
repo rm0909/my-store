@@ -3,11 +3,12 @@ function Product(props){
         <div
         onClick={props.handleClick}
         className="product"
-        key={props.id}
+        key={props.key}
       >
         <p>title:{props.title}</p>
         <p>desc:{props.desc}</p>
         <p>preço: {props.price}</p>
+        <img src={props.image} />
       </div>
     )
 }
