@@ -39,8 +39,8 @@ function UserPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post("http://localhost:8000/posts/post", {
-      authorID: "62bded7e0bef451bc3892950",
+    const response = await axios.post(`${baseURL}/posts/post`, {
+      authorID: userIDContext,
       title: title,
       description: description,
       quantity: quantity,
