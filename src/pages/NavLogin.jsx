@@ -1,7 +1,7 @@
 /*dependencies*/
 import { useRef, useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import { Navbar, Nav,Button } from "react-bootstrap";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 /*local components*/
@@ -48,7 +48,7 @@ function NavLogin() {
   }
   const checkUserName = () => {
     const data = JSON.parse(localStorage.getItem("storeUserData"));
-    if (!data) return
+    if (!data) return;
     setUserName(data.userName);
   };
   const clearStorage = () => {
@@ -57,39 +57,51 @@ function NavLogin() {
     return;
   };
   return (
-    <>
-      <Link to="/">HOME</Link>
-      {!authorized ? (
-        <form>
-          <label htmlFor="text">
-            email
-            <input
-              ref={emailRef}
-              type="email"
-              name="email"
-              id="email"
-              onChange={handleChange}
-            />
-          </label>{" "}
-          <label htmlFor="password">
-            password
-            <input
-              ref={passwordRef}
-              type="password"
-              name="password"
-              id="password"
-              onChange={handleChange}
-            />
-          </label>
-          <button onClick={loginUser}>send</button>
-        </form>
-      ) : (
-        <>
-          <Link to="/user">{userName}</Link>
-          <button onClick={clearStorage}>logout</button>
-        </>
-      )}
-    </>
+    <Navbar>
+      <Nav>
+        <Nav.Item>
+          <Link to="/">HOME</Link>
+        </Nav.Item>
+        <Nav/>
+        <br />
+        {!authorized ? (
+          <form>
+            <label htmlFor="text">
+              email
+              <input
+                ref={emailRef}
+                type="email"
+                name="email"
+                id="email"
+                onChange={handleChange}
+              />
+            </label>{" "}
+            <label htmlFor="password">
+              password
+              <input
+                ref={passwordRef}
+                type="password"
+                name="password"
+                id="password"
+                onChange={handleChange}
+              />
+            </label>
+            <button onClick={loginUser}>send</button>
+          </form>
+        ) : (
+          <>
+            <Nav.Item>
+              <Link to="/user">{userName}</Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              {" "}
+              <Button variant="warning" onClick={clearStorage}>logout</Button>
+            </Nav.Item>
+          </>
+        )}
+      </Nav>
+    </Navbar>
   );
 }
 export { NavLogin };

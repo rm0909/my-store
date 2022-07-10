@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
 /*local components*/
 import { Context } from "../context/ContextProvider";
 import { baseURL } from "../helper/url";
@@ -28,16 +29,16 @@ function Homepage() {
   };
 
   return (
-    <>
-      <header>
-        <h1>home</h1>
-      </header>
+    <Container fluid>
+        <header>
+          <h1>home</h1>
+        </header>
       <main>
         {data.length > 0 &&
           data.map((item) => {
             return (
-              <ProductReadOnly 
-                handleClick={()=> handleClick(item._id)}
+              <ProductReadOnly
+                handleClick={() => handleClick(item._id)}
                 key={item._id}
                 title={item.title}
                 desc={item.description}
@@ -46,10 +47,10 @@ function Homepage() {
                 image={item.image}
                 author={item.author}
               />
-              );
+            );
           })}
       </main>
-    </>
+    </Container>
   );
 }
 export { Homepage };

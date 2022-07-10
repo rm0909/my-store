@@ -1,4 +1,5 @@
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 /*local components */
 import { Nav } from "./pages/Nav";
 import { Homepage } from "./pages/Homepage";
