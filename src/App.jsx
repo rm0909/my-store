@@ -1,9 +1,9 @@
 import "./App.css";
 /*local components */
-import { Nav } from "./components/Nav";
-import { Homepage } from "./components/Homepage";
-import { IndividualProd } from "./components/IndividualProd";
-import { UserPage } from "./components/UserPage";
+import { Nav } from "./pages/Nav";
+import { Homepage } from "./pages/Homepage";
+import { IndividualProd } from "./pages/IndividualProd";
+import { UserPage } from "./pages/UserPage";
 /*context*/
 import { ContextProvider } from "./context/ContextProvider";
 /*dependencies*/

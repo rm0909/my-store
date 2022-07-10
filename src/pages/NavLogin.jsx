@@ -81,12 +81,12 @@ function NavLogin() {
               onChange={handleChange}
             />
           </label>
-          <button onClick={loginUser}>enviar</button>
+          <button onClick={loginUser}>send</button>
         </form>
       ) : (
         <>
           <Link to="/user">{userName}</Link>
-          <button onClick={clearStorage}>sair</button>
+          <button onClick={clearStorage}>logout</button>
         </>
       )}
     </>
