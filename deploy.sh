@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+# para rodar ./deploy.sh
 # abort on errors
 set -e
 
@@ -21,6 +22,8 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:<rm0909>/<mercado-dibre>.git main:gh-pages
+# git push -f git@github.com:<USERNAME>/<REPO>.git main:gh-pages
+
+git push -f git@github.com:rm0909/my-store.git main:gh-pages
 
 cd -
