@@ -71,7 +71,7 @@ function PostForm(props) {
           src={props.image}
           style={{ maxWidth: "150px", maxHeight: "150px" }}
         />
-        {props.button === "Post" ?<Button variant="primary" type="submit">{props.button}</Button> : <Button variant="warning">{props.button}</Button>}
+        {props.button === "Post" ?<Button variant="primary" type="submit">{props.button}</Button> : <Button type="submit" variant="warning">{props.button}</Button>}
       </Form>
       </Container>
   );

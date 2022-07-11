@@ -1,10 +1,7 @@
 /*dependencies*/
 import { useRef, useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Nav
-  } from "react-bootstrap";
+import { Button, Nav } from "react-bootstrap";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 /*local components*/
@@ -33,6 +30,7 @@ function NavLogin() {
   //post request login
   async function loginUser(e) {
     e.preventDefault();
+    if (emailRef.current.value === null || passwordRef.current.value === null) return
     const response = await axios.post(`${baseURL}/user/login`, {
       email: emailRef.current.value,
       password: passwordRef.current.value,
@@ -61,13 +59,12 @@ function NavLogin() {
   };
   return (
     <Nav>
-          <h1>MERCADO DIBRE</h1>
-          <div className="nav">
-          <Link to="/">HOME</Link>
-        
+      <h1>MERCADO DIBRE</h1>
+      <div className="nav">
+        <Link to="/">HOME</Link>
 
         {!authorized ? (
-        
+          <div className="space-even">
             <form>
               <label htmlFor="text">
                 email
@@ -90,11 +87,12 @@ function NavLogin() {
                   onChange={handleChange}
                 />
               </label>
-              <Button variant="primary" onClick={loginUser}>
-                send
-              </Button>
-            </form>
-         
+              <Link to="/" replace={true}><Button variant="primary" onClick={loginUser}>
+                Login
+              </Button></Link>
+            </form>{" "}
+           <Link to="/register">register</Link>
+          </div> 
         ) : (
           <div>
             <Link to="/user">{userName}</Link>{" "}
@@ -103,7 +101,7 @@ function NavLogin() {
             </Button>
           </div>
         )}
-     </div>
+      </div>
     </Nav>
   );
 }
