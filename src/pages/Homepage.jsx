@@ -34,7 +34,7 @@ function Homepage() {
         <h1 className="text-align">home</h1>
       </header>
       <main>
-        <Container>
+        <Container xl={3}>
           <Row>
             {data.length > 0 &&
               data.map((item) => {

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Toast } from "react-bootstrap";
 import axios from "axios";
 //
 import { baseURL } from "../helper/url";
@@ -16,9 +16,11 @@ function UserPage() {
   const [quantity, setQuantity] = useState(0);
   const [price, setPrice] = useState(0);
   const [imageState, setImageState] = useState("");
-  const [reRender, setRerender] = useState([]);
+
   const [editState, setEditState] = useState(false);
   const [itemID, setItemID] = useState("");
+  const [success, setSucess] = useState(false);
+  const [show, setShow] = useState(false);
   useEffect(() => {
     const getUserProducts = async () => {
       try {
@@ -58,6 +60,7 @@ function UserPage() {
     try {
       const uploadedImage = response.data;
       console.log("Image sent", uploadedImage);
+      setSucess(true)
     } catch (error) {
       console.log(error);
     }
@@ -80,7 +83,8 @@ function UserPage() {
         price: price,
         image: imageState,
       });
-      console.log("patched");
+      console.log("product edit")
+      setSucess(true);
     } catch (error) {
       console.log(error);
     }
@@ -110,6 +114,12 @@ function UserPage() {
                 image={imageState}
                 button={!editState ? "Post" : "Edit"}
               />
+              {success && (
+                <Toast position="bottom-start" bg="success" onClose={() => setShow(false)} show={show} delay={3000} autohide>
+                  <Toast.Header>Post status</Toast.Header>
+                  <Toast.Body>Product posted successfully! </Toast.Body>
+                </Toast>
+              )}
             </section>
           </Col>
           <Col>
@@ -133,7 +143,7 @@ function UserPage() {
                         </Col>
                       );
                     })}{" "}
-               </Row>
+                </Row>
               </Container>
             </section>
           </Col>

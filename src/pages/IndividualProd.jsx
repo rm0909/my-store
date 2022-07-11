@@ -7,10 +7,10 @@ import { baseURL } from "../helper/url";
 import { Product } from "./components/Product";
 import { Cart } from "./components/Cart";
 function IndividualProd() {
-  const { itemID } = useContext(Context);
+  const { cartContext, pushItemToCart } = useContext(Context);
 
   const [data, setData] = useState({});
-  const [cart, setCart] = useState([]);
+  
   useEffect(() => {
     const getProductByItemId = async () => {
       try {
@@ -25,7 +25,8 @@ function IndividualProd() {
     getProductByItemId();
   }, []);
   const handleCart = (title, desc, quant, price, img, id) => {
-    if (cart.some((item) => item._id === id)) return;
+    if (!id) return
+    if (cartContext.some((item) => item._id === id)) return;
     const object = [
       {
         title: title,
@@ -36,13 +37,12 @@ function IndividualProd() {
         _id: id,
       },
     ];
-    setCart(object);
-    console.log(cart);
+    pushItemToCart(object);
   };
   return (
-    <Container>
+    <Container className="container">
       <header>
-        <h4 className="text-align">PRODUTO</h4>
+        <h4 className="text-align">PRODUCT</h4>
       </header>
       <main>
         <Row>
@@ -61,7 +61,7 @@ function IndividualProd() {
             </Col>
           )}
           <Col>
-            <Cart cartItems={cart} />
+            <Cart cartItems={cartContext} />
           </Col>
         </Row>
       </main>

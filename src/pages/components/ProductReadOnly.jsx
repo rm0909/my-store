@@ -4,7 +4,7 @@ import {Card,Alert} from "react-bootstrap"
 function ProductReadOnly(props) {
   const { userIDContext } = useContext(Context);
   return (
-    <Card key={Date.now()} onClick={props.handleClick} className="product">
+    <Card key={Date.now()} onClick={props.handleClick} className="product container">
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
       <Card.Text>Price: ${props.price}</Card.Text>

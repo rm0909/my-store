@@ -4,8 +4,8 @@ import {Card ,Alert, Button} from "react-bootstrap"
 function Product(props) {
   const { userIDContext } = useContext(Context);
   return (
-    <Card key={Date.now()} onClick={props.handleClick} className="product">
-      <Card.Body>
+    <Card key={Date.now()} onClick={props.handleClick} className="product container">
+      <Card.Body >
       <Card.Title>{props.title}</Card.Title>
       <Card.Text>{props.desc}</Card.Text>
       <Card.Text>Price: ${props.price}</Card.Text>

@@ -1,10 +1,12 @@
 import { createContext, useEffect, useState } from "react";
+import { Prev } from "react-bootstrap/esm/PageItem";
 const Context = createContext();
 
 function ContextProvider({ children }) {
   const [authorized, setAuthorized] = useState(false);
   const [itemID, setItemID] = useState("");
   const [userIDContext, setUserIDContext] = useState("");
+  const [cartContext, setCartContext] = useState([])
   useEffect(() => {
     checkAuth();
   }, [authorized]);
@@ -24,6 +26,7 @@ function ContextProvider({ children }) {
     setItemID(id)
     localStorage.setItem("currentItem", JSON.stringify(id))
   };
+  const pushItemToCart = (product) => setCartContext(prev=> prev.concat(product))
   return (
     <Context.Provider
       value={{
@@ -32,6 +35,8 @@ function ContextProvider({ children }) {
         handleItemIDContext,
         itemID,
         userIDContext,
+        cartContext,
+        pushItemToCart
       }}
     >
       {children}

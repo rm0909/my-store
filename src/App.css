@@ -5,10 +5,13 @@
     font-family: 16px;
 }
 .product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     padding: 1.5em;
     border: 1px solid black;
-    width: 300px;
 }
 img{
     max-width: 150px;
@@ -24,4 +27,7 @@ img{
     justify-content: space-around;
     width: 100%;
     margin: 10px;
+}
+.width{
+    width: 300px;
 }
