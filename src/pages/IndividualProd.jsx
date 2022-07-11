@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 /*local components */
 import { Context } from "../context/ContextProvider";
@@ -13,7 +14,8 @@ function IndividualProd() {
   useEffect(() => {
     const getProductByItemId = async () => {
       try {
-        if (!itemID) return;
+        // if (!itemID) return;
+        const itemID = JSON.parse(localStorage.getItem("currentItem"));
         const response = await axios.get(`${baseURL}/posts/product/${itemID}`);
         setData(response.data);
       } catch (error) {
@@ -22,41 +24,48 @@ function IndividualProd() {
     };
     getProductByItemId();
   }, []);
-  const handleCart = (title,desc,quant,price,img,id) => {
-    if (cart.some(item=> item.id === id)) return 
-    const object = [{
-      title: title,
-      description: desc,
-      quantity: quant,
-      price: price,
-      image:img,
-      _id: id,
-    }]
-    setCart(prev=> [...prev,object])
+  const handleCart = (title, desc, quant, price, img, id) => {
+    if (cart.some((item) => item._id === id)) return;
+    const object = [
+      {
+        title: title,
+        description: desc,
+        quantity: quant,
+        price: price,
+        image: img,
+        _id: id,
+      },
+    ];
+    setCart(object);
+    console.log(cart);
   };
   return (
-    <>
+    <Container>
       <header>
-        <h1>PRODUTO</h1>
+        <h4 className="text-align">PRODUTO</h4>
       </header>
       <main>
-        {data && (
-          <>
-            <Product
-              handleCart={handleCart}
-              id={data._id}
-              title={data.title}
-              desc={data.description}
-              price={data.price}
-              quant={data.quantity}
-              image={data.image}
-              author={data.author}
-            />
-          </>
-        )}
+        <Row>
+          {data && (
+            <Col>
+              <Product
+                handleCart={handleCart}
+                id={data._id}
+                title={data.title}
+                desc={data.description}
+                price={data.price}
+                quant={data.quantity}
+                image={data.image}
+                author={data.author}
+              />
+            </Col>
+          )}
+          <Col>
+            <Cart cartItems={cart} />
+          </Col>
+        </Row>
       </main>
-      <Cart cartItems={cart} />
-    </>
+    </Container>
   );
 }
 export { IndividualProd };

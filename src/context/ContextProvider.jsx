@@ -8,6 +8,7 @@ function ContextProvider({ children }) {
   useEffect(() => {
     checkAuth();
   }, [authorized]);
+ 
   function checkAuth() {
     const data = JSON.parse(localStorage.getItem("storeUserData"));
     if (!data) {
@@ -19,7 +20,10 @@ function ContextProvider({ children }) {
     
   }
   const setAuth = () => setAuthorized(true);
-  const handleItemIDContext = (id) => setItemID(id);
+  const handleItemIDContext = (id) =>{ 
+    setItemID(id)
+    localStorage.setItem("currentItem", JSON.stringify(id))
+  };
   return (
     <Context.Provider
       value={{

@@ -1,7 +1,10 @@
 /*dependencies*/
 import { useRef, useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav,Button } from "react-bootstrap";
+import {
+  Button,
+  Nav
+  } from "react-bootstrap";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 /*local components*/
@@ -57,51 +60,51 @@ function NavLogin() {
     return;
   };
   return (
-    <Navbar>
-      <Nav>
-        <Nav.Item>
+    <Nav>
+          <h1>MERCADO DIBRE</h1>
+          <div className="nav">
           <Link to="/">HOME</Link>
-        </Nav.Item>
-        <Nav/>
-        <br />
-        {!authorized ? (
-          <form>
-            <label htmlFor="text">
-              email
-              <input
-                ref={emailRef}
-                type="email"
-                name="email"
-                id="email"
-                onChange={handleChange}
-              />
-            </label>{" "}
-            <label htmlFor="password">
-              password
-              <input
-                ref={passwordRef}
-                type="password"
-                name="password"
-                id="password"
-                onChange={handleChange}
-              />
-            </label>
-            <button onClick={loginUser}>send</button>
-          </form>
-        ) : (
-          <>
-            <Nav.Item>
-              <Link to="/user">{userName}</Link>
-            </Nav.Item>
+        
 
-            <Nav.Item>
-              {" "}
-              <Button variant="warning" onClick={clearStorage}>logout</Button>
-            </Nav.Item>
-          </>
+        {!authorized ? (
+        
+            <form>
+              <label htmlFor="text">
+                email
+                <input
+                  ref={emailRef}
+                  type="email"
+                  name="email"
+                  id="email"
+                  onChange={handleChange}
+                />
+              </label>
+
+              <label htmlFor="password">
+                password
+                <input
+                  ref={passwordRef}
+                  type="password"
+                  name="password"
+                  id="password"
+                  onChange={handleChange}
+                />
+              </label>
+              <Button variant="primary" onClick={loginUser}>
+                send
+              </Button>
+            </form>
+         
+        ) : (
+          <div>
+            <Link to="/user">{userName}</Link>{" "}
+            <Button variant="secondary" onClick={clearStorage}>
+              Log out
+            </Button>
+          </div>
         )}
-      </Nav>
-    </Navbar>
+     </div>
+    </Nav>
   );
 }
 export { NavLogin };

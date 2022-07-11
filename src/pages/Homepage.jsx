@@ -24,31 +24,37 @@ function Homepage() {
   }, []);
   let navigate = useNavigate();
   const handleClick = (id) => {
-    handleItemIDContext(id);
+       handleItemIDContext(id);
     navigate("/product", { replace: true });
   };
 
   return (
     <Container fluid>
-        <header>
-          <h1>home</h1>
-        </header>
+      <header>
+        <h1 className="text-align">home</h1>
+      </header>
       <main>
-        {data.length > 0 &&
-          data.map((item) => {
-            return (
-              <ProductReadOnly
-                handleClick={() => handleClick(item._id)}
-                key={item._id}
-                title={item.title}
-                desc={item.description}
-                quant={item.quantity}
-                price={item.price}
-                image={item.image}
-                author={item.author}
-              />
-            );
-          })}
+        <Container>
+          <Row>
+            {data.length > 0 &&
+              data.map((item) => {
+                return (
+                  <Col>
+                    <ProductReadOnly
+                      handleClick={() => handleClick(item._id)}
+                      key={item._id}
+                      title={item.title}
+                      desc={item.description}
+                      quant={item.quantity}
+                      price={item.price}
+                      image={item.image}
+                      author={item.author}
+                    />
+                  </Col>
+                );
+              })}
+          </Row>
+        </Container>
       </main>
     </Container>
   );

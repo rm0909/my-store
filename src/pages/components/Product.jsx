@@ -1,16 +1,18 @@
 import { Context } from "/Users/COMPUTADOR/Documents/GitHub/my-store/src/context/ContextProvider.jsx";
 import { useContext } from "react";
+import {Card ,Alert, Button} from "react-bootstrap"
 function Product(props) {
   const { userIDContext } = useContext(Context);
   return (
-    <div key={Date.now()} onClick={props.handleClick} className="product">
-      <p>title:{props.title}</p>
-      <p>desc:{props.desc}</p>
-      <p>quant:{props.quant}</p>
-      <p>price: {props.price}</p>
-      <img src={props.image} />
+    <Card key={Date.now()} onClick={props.handleClick} className="product">
+      <Card.Body>
+      <Card.Title>{props.title}</Card.Title>
+      <Card.Text>{props.desc}</Card.Text>
+      <Card.Text>Price: ${props.price}</Card.Text>
+      </Card.Body>
+      <Card.Img src={props.image} />
       {userIDContext !== props.author ? (
-        <button
+        <Button
           onClick={() =>
             props.handleCart(
               props.title,
@@ -23,11 +25,11 @@ function Product(props) {
           }
         >
           Add to cart
-        </button>
+        </Button>
       ) : (
-        <p>It is your item</p>
+        <Alert variant="info">It is your item</Alert>
       )}
-    </div>
+    </Card>
   );
 }
 export { Product };

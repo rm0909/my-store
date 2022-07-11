@@ -1,13 +1,16 @@
+import {Card, Button,Container} from "react-bootstrap"
 function UserProduct(props) {
   return (
-    <div key={props.id} onClick={props.handleClick} className="product">
-      <p>title:{props.title}</p>
-      <p>desc:{props.desc}</p>
-      <p>preço: {props.price}</p>
-      <img src={props.image} />
-      <button onClick={props.handleDelete}>excluir</button>
-      <button onClick={props.handleEditState}>editar</button>
-    </div>
+    <Container>
+      <Card key={props.id} onClick={props.handleClick} className="product justify-content-center">
+        <Card.Title>{props.title}</Card.Title>
+        <Card.Text>{props.desc}</Card.Text>
+        <Card.Text>Price: ${props.price}</Card.Text>
+        <Card.Img src={props.image} />
+        <Button variant="danger"onClick={props.handleDelete}>Delete</Button>
+        <Button variant="secondary"onClick={props.handleEditState}>Edit</Button>
+      </Card>
+    </Container>
   );
 }
-export { UserProduct };
+export  {UserProduct};
