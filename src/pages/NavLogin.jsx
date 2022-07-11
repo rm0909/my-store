@@ -96,9 +96,10 @@ function NavLogin() {
         ) : (
           <div>
             <Link to="/user">{userName}</Link>{" "}
+            <Link to="/">
             <Button variant="secondary" onClick={clearStorage}>
               Log out
-            </Button>
+            </Button></Link>
           </div>
         )}
       </div>
