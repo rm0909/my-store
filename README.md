@@ -10,7 +10,7 @@ Usuários podem adicionar produtos em um carrinho.
 
 - Node
 - Express para middlewares
-- Express Rest API  para rotas de usuários e produtos
+- Express <a href="https://github.com/rm0909/my-store-api">Rest API</a>  para rotas de usuários e produtos
 - MongoDB para database
 - Cloudinary para upload de imagens
 - React Hooks 
@@ -25,6 +25,8 @@ Usuários podem adicionar produtos em um carrinho.
 
 - Upload de imagem
 
+#### Backend REST API repo:
+https://github.com/rm0909/my-store-api
 _____________________________________________________________________
 
 # Ecommerce App
@@ -36,7 +38,7 @@ User can add products to cart.
 # Build With:
 - Node
 - Express for middlewares
-- Express Rest api for users and product routes.
+- Express <a href="https://github.com/rm0909/my-store-api">Rest API</a> for users and product routes.
 - Mongo DB
 - Cloudinary for image upload.
 - React Hooks
