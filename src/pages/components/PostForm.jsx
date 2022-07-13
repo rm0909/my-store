@@ -2,7 +2,7 @@ import {Form, Image, Button, Container} from "react-bootstrap"
 
 function PostForm(props) {
   return (
-    <Container Fluid>
+    <Container fluid>
       <h4 className="text-align">Post</h4>
       <Form onSubmit={props.handleSubmit}>
         <Form.Group className="mb-3">

@@ -35,7 +35,7 @@ function UserPage() {
     getUserProducts();
   }, []);
 
-  //function to make javascript read image to desplay for the user
+  // function to make javascript read image to desplay for the user
   const previewFiles = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -62,7 +62,7 @@ function UserPage() {
       console.log("Image sent", uploadedImage);
       setSucess(true)
     } catch (error) {
-      console.log(error);
+      console.log("post error",error);
     }
   };
   const handleDelete = async (id) => {
