@@ -25,7 +25,7 @@ function Homepage() {
   let navigate = useNavigate();
   const handleClick = (id) => {
        handleItemIDContext(id);
-    navigate("/product", { replace: true });
+    navigate("/product");
   };
 
   return (

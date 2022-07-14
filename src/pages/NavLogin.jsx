@@ -73,6 +73,8 @@ function NavLogin() {
                   type="email"
                   name="email"
                   id="email"
+                  value="johndoe@email.com"
+                  placeholder="johndoe@email.com"
                   onChange={handleChange}
                 />
               </label>
@@ -84,6 +86,8 @@ function NavLogin() {
                   type="password"
                   name="password"
                   id="password"
+                  value="123456"
+                  placeholder="123456"
                   onChange={handleChange}
                 />
               </label>

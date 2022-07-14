@@ -41,11 +41,8 @@ function IndividualProd() {
   };
   return (
     <Container className="container">
-      <header>
-        <h4 className="text-align">PRODUCT</h4>
-      </header>
       <main>
-        <Row>
+        <Row sm={4}>
           {data && (
             <Col>
               <Product
@@ -60,8 +57,11 @@ function IndividualProd() {
               />
             </Col>
           )}
-          <Col>
-            <Cart cartItems={cartContext} />
+          <Col md={8}>
+            <h4>Cart</h4>
+            <Row>
+              <Cart cartItems={cartContext} />
+            </Row>
           </Col>
         </Row>
       </main>

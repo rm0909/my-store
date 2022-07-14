@@ -21,7 +21,6 @@ function PostForm(props) {
           Description
           <Form.Control as="textarea" rows={9}
             id="descInput"
-            placeholder="describe your product"
             required
           />
         </Form.Label>

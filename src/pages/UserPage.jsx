@@ -100,7 +100,7 @@ function UserPage() {
       </header>
       <main>
         <Row>
-          <Col>
+          <Col md>
             <section>
               <PostForm
                 handleSubmit={
@@ -122,15 +122,15 @@ function UserPage() {
               )}
             </section>
           </Col>
-          <Col>
+          <Col md={9}>
             <section>
-              <Container fluid>
+              <Container >
                 <h4 className="text-align">User Products</h4>
                 <Row>
                   {data.length > 0 &&
                     data.map((item) => {
                       return (
-                        <Col>
+                        <Col >
                           <UserProduct
                             title={item.title}
                             desc={item.description}
