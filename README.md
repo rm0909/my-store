@@ -19,7 +19,7 @@ Usuários podem adicionar produtos em um carrinho.
 
 ### O que eu aprendi:
 
-- Criar um middleware para upar imagens no cloudinary e atribuir o url da imagem ao usuário que postou.
+- Criar um middleware para upar imagens no cloudinary e atribuir o url da imagem ao produto que o usuário postou.
 
 ### Maior dificuldade:
 
@@ -47,7 +47,7 @@ User can add products to cart.
 
 ### What i learned:
 
-- Create a middleware to upload images in cloudinary and assign the image to the user that posted the product.
+- Create a middleware to upload images in cloudinary and assign the image to the product posted by the user.
 
 ### Biggest difficulty:
 - Upload image.
