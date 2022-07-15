@@ -15,11 +15,11 @@ function App() {
     <div className="App">
       <ContextProvider>
         <Nav />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/product" element={<IndividualProd />} />
-          <Route path="/user" element={<UserPage />} />
-          <Route path="/register" element={<Register />} />
+        <Routes >
+          <Route path="/my-store/" element={<Homepage />} />
+          <Route path="/my-store/product" element={<IndividualProd />} />
+          <Route path="/my-store/user" element={<UserPage />} />
+          <Route path="/my-store/register" element={<Register />} />
         </Routes>
       </ContextProvider>
     </div>

@@ -61,7 +61,7 @@ function NavLogin() {
     <Nav>
       <h1>MERCADO DIBRE</h1>
       <div className="nav">
-        <Link to="/">HOME</Link>
+        <Link to="/my-store/">HOME</Link>
 
         {!authorized ? (
           <div className="space-even">
@@ -91,16 +91,16 @@ function NavLogin() {
                   onChange={handleChange}
                 />
               </label>
-              <Link to="/" replace={true}><Button variant="primary" onClick={loginUser}>
+              <Link to="/my-store/" replace={true}><Button variant="primary" onClick={loginUser}>
                 Login
               </Button></Link>
             </form>{" "}
-           <Link to="/register">register</Link>
+           <Link to="/my-store/register">register</Link>
           </div> 
         ) : (
           <div>
-            <Link to="/user">{userName}</Link>{" "}
-            <Link to="/">
+            <Link to="/my-store/user">{userName}</Link>{" "}
+            <Link to="/my-store/">
             <Button variant="secondary" onClick={clearStorage}>
               Log out
             </Button></Link>
